@@ -1,0 +1,153 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: 1s ease all;
+    &.dark{
+      background: #000000ef;
+      transition: 1s ease all;
+    }
+
+
+
+
+  }
+/*Todo el diseño del encabezado*/  
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    
+  }
+
+
+
+  
+  header h1 {
+    margin: 0;
+  }
+  
+  section {
+    padding: 20px;
+  }
+  
+  article {
+    margin-bottom: 20px;
+  }
+  
+  article h2 {
+    font-size: 24px;
+  }
+  
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    transform: translateY(-40px);
+
+  }
+  
+  nav ul li {
+    display: inline;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+  }
+  
+  nav ul li a:hover {
+    background-color: #555;
+  }
+/*Diseño del boton para cambiar entre modo nocturno */
+  .botonSwitch{
+
+    margin: 0;
+    padding: 0;
+    display: inline;
+    text-decoration: none;
+    padding: 10px;
+
+
+  }
+
+  .SwitchLB{
+    top: -7px;
+    display: inline-block;
+    width: 75px;
+    height: 35px;
+    background: #555;
+    border-radius: 100px;
+    position: relative;
+    cursor: pointer;
+  }
+  .SwitchLB::after{
+    position: absolute;
+    content: '';
+    width: 27px;
+    height: 27px;
+    background: #fff;
+    top: 4px;
+    left: 5px;
+    transition: 0.3s;
+    border-radius: 100px;
+  }
+
+  #SwitchIP:checked~ .SwitchLB{
+    background: #e76005;
+  }
+
+  #SwitchIP:checked~ .SwitchLB::after{
+    left: 45px;
+  }
+
+  #SwitchIP{
+    display: none;
+  }
+
+ i{
+  position: relative;
+  padding-right: 20px;
+  top: 10px;
+  left: 10px;
+  width: 15px;
+  height: 15px;
+ }
+
+ /*PORFIIIIIIIIIIIN cambio de diseño de pantalla a oscuro */
+
+ body.dark header{
+    background-color: #f1eeee;
+    color: #080707;
+    transition: 1s ease all;
+
+  
+}
+
+  body.dark nav{
+    color: #f8f6f6;
+    transition: 1s ease all;
+
+    
+}
+
+  body.dark h2{
+    color: #ffffff;
+    transition: 1s ease all;
+
+  
+}
+
+
+  body.dark p{
+    color: #ffffff;
+    transition: 1s ease all;
+
+
+}
