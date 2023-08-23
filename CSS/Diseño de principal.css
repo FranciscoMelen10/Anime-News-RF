@@ -178,3 +178,9 @@ img {
 
 
 }
+
+.contenedor_anime{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
