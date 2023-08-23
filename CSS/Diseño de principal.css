@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     transition: 1s ease all;
+    background-color: #D6E8EE;
     &.dark{
       background: #000000ef;
       transition: 1s ease all;
@@ -12,14 +13,38 @@ body {
 
 
   }
+/*tablas pa imagenes*/
+table {
+  border-collapse: collapse;
+  width: 80%;
+  margin: 0 auto;
+}
+
+th, td {
+  border: 1px solid #dddddd;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
 /*Todo el diseño del encabezado*/  
   header {
-    background-color: #333;
+    background: linear-gradient(to right, #001B48, #02457A, #018ABE);
     color: #fff;
     padding: 20px;
-    
-  }
+    text-align: center;
 
+  }
 
 
   
@@ -40,29 +65,31 @@ body {
   }
   
   footer {
-    background-color: #333;
+    background: linear-gradient(to right, #001B48, #02457A, #018ABE);
     color: #fff;
     padding: 10px;
     text-align: center;
   }
   
-  nav ul {
+  header ul {
     list-style-type: none;
     transform: translateY(-40px);
+    margin-top: 5%;
+    
 
   }
   
-  nav ul li {
+  header ul li {
     display: inline;
   }
   
-  nav ul li a {
+  header ul li a {
     color: #fff;
     text-decoration: none;
     padding: 10px;
   }
   
-  nav ul li a:hover {
+  header ul li a:hover {
     background-color: #555;
   }
 /*Diseño del boton para cambiar entre modo nocturno */
@@ -130,7 +157,7 @@ body {
   
 }
 
-  body.dark nav{
+  body.dark ul{
     color: #f8f6f6;
     transition: 1s ease all;
 
