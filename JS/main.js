@@ -47,16 +47,17 @@ const API = "https://api.jikan.moe/v4/anime"
 const contenedor_anime = document.querySelector(".contenedor_anime")
 
 try {
-	fetch(API)
-    .then(resp => resp.json())
-    .then(info => {
-        info.data.map(items => {
-            informacion = `
-                <td><img src="${items.images.jpg.image_url}" alt="Imagen"></td>
-            `
-            contenedor_anime.innerHTML += informacion
+    fetch(API)
+      .then(resp => resp.json())
+      .then(info => {
+        info.data.map((items, index) => {  
+          informacion = ` 
+            <img class="anime-img img-${index}" src="${items.images.jpg.image_url}" alt="Imagen">
+          `
+          contenedor_anime.innerHTML += informacion
         })
-    })
-} catch (error) {
-	console.error(error);
-}
+        //agregue un index para que las clases de cada imagen sean distintas y poder editar cada una de manera distinta
+      })
+  } catch (error) {
+    console.error(error);
+  }
