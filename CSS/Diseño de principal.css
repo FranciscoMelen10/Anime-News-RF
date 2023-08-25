@@ -49,7 +49,7 @@ img {
   left: 0;
   width: 100%;
   font-family: "open sans", sans-serif;
-  z-index: 1000; /* Asegura que el encabezado esté por encima de otros elementos */
+  z-index: 1000; 
 }
 
 
@@ -194,6 +194,7 @@ body.dark li{
 }
 
 .section_anime {
+  padding-top: 100px;
   display: flex;
   flex-wrap: wrap;
   gap: 25px;
@@ -201,6 +202,7 @@ body.dark li{
 }
 
 .section_anime img {
+
   width: 450px;
   height: 600px;
   object-fit: cover;
