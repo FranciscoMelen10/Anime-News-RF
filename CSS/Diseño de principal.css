@@ -3,10 +3,12 @@ body {
     margin: 0;
     padding: 0;
     transition: 1s ease all;
-    background-color: #D6E8EE;
+    background-color: #ffffff;
+    background-image: url("/IMG/27489.png");
     &.dark{
       background: #000000ef;
-      transition: 1s ease all;
+      transition: 0.5s ease all;
+      background-image: url("/IMG/fa650512d7d0c1ee3a871b058bbc846a.jpg");
     }
 
 
@@ -37,11 +39,17 @@ img {
 }
 
 /*Todo el diseño del encabezado*/  
-header {
-  background: linear-gradient(to right, #001B48, #02457A, #018ABE);
-  color: #fff;
-  padding: 20px;
-  position: relative;
+
+
+.principal {
+  background-color: white;
+  padding: 0px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  font-family: "open sans", sans-serif;
+  z-index: 1000; /* Asegura que el encabezado esté por encima de otros elementos */
 }
 
 
@@ -64,6 +72,7 @@ header nav {
 .barra li {
   margin: 0 15px;
   bottom: 50px;
+  color: #000000;
 }
 
 
@@ -152,8 +161,8 @@ header nav {
  /*PORFIIIIIIIIIIIN cambio de diseño de pantalla a oscuro */
 
  body.dark header{
-    background-color: #f1eeee;
-    color: #080707;
+    background-color: rgb(48, 47, 47);
+    color: #9b1212;
     transition: 1s ease all;
 
   
@@ -179,7 +188,10 @@ header nav {
     transition: 1s ease all;
 }
 
-
+body.dark li{
+  color: #ffffff;
+  transition: 1s ease all;
+}
 
 .section_anime {
   display: flex;
@@ -224,6 +236,7 @@ header nav {
 
 /* Título del anime */
 .title__anime {
+
   position: absolute;
   bottom: 550px;
   left: 0;
@@ -243,6 +256,7 @@ header nav {
 
 
 .synopsis__anime {
+  object-fit: cover;
   position: absolute;
   bottom: 0;
   left: 0;
