@@ -195,6 +195,7 @@ header nav {
   border: 2px solid #333;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s, box-shadow 0.3s;
+  
 }
 
 .section_anime img:hover {
@@ -204,12 +205,13 @@ header nav {
 
 /* Contenedor individual para cada anime */
 .contenedor_extra {
-  
   position: relative;
   display: inline-block;
-  margin: 10px;
   overflow: hidden;
   transition: transform 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Imagen del anime */
@@ -225,8 +227,7 @@ header nav {
 /* Título del anime */
 .title__anime {
   position: absolute;
-  bottom: 550px;
-  left: 0;
+  top: 0;
   width: 100%;
   text-align: center;
   color: rgb(238, 196, 7);
@@ -244,12 +245,9 @@ header nav {
 
 .synopsis__anime {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
   text-align: center;
   color: white;
-  opacity: 0;
+  opacity: 0; 
   transition: opacity 0.3s, transform 0.3s;
   pointer-events: none;
 }

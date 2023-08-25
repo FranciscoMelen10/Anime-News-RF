@@ -52,10 +52,10 @@ try {
         .then(info => {
             info.data.map((items, index) => {
                 informacion = ` 
-                <div class="contenedor__anime">
-                    <div class="contenedor_extra">
-                        <img class="anime-img img-${index}" src="${items.images.jpg.image_url}" alt="Imagen">
-                        <h4 class="title__anime">${items.title}</h4>
+                <div class="contenedor__anime" onclick="abrir_anime(${items.mal_id})">
+                    <div class="contenedor_extra"">
+                        <img class="anime-img img-${index}"  src="${items.images.jpg.image_url}" alt="Imagen">
+                        <h1 class="title__anime">${items.title}</h1>
                         <h4 class="synopsis__anime">${items.synopsis}</h4>
                     </div>
                 </div>
@@ -66,4 +66,10 @@ try {
         });
 } catch (error) {
     console.error(error);
+}
+
+
+function abrir_anime(id){
+    const url = `/HTML/anime.html?id=${id}`;
+    window.open(url);
 }
