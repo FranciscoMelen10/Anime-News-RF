@@ -53,15 +53,17 @@ try {
             info.data.map((items, index) => {
                 informacion = ` 
                 <div class="contenedor__anime">
-                    <img class="anime-img img-${index}" src="${items.images.jpg.image_url}" alt="Imagen">
-                    <h4 class="title__anime">${items.title}</h4>
+                    <div class="contenedor_extra">
+                        <img class="anime-img img-${index}" src="${items.images.jpg.image_url}" alt="Imagen">
+                        <h4 class="title__anime">${items.title}</h4>
+                        <h4 class="synopsis__anime">${items.synopsis}</h4>
+                    </div>
                 </div>
                 `
-                section_anime.innerHTML += informacion
-            })
-            //agregue un index para que las clases de cada imagen sean distintas y poder editar cada una de manera distinta
-            console.log(info)
-        })
+                section_anime.innerHTML += informacion;
+            });
+            console.log(info);
+        });
 } catch (error) {
     console.error(error);
 }
