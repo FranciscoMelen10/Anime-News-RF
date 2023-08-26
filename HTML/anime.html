@@ -1,16 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anime</title>
     <link rel="stylesheet" href="../CSS/anime.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Bangers&family=REM:wght@600&family=Staatliches&display=swap"
+        rel="stylesheet">
+
 </head>
+
 <body>
+
+    <section class="section__pictures">
+        <p>Pictures</p>
+        <!-- Se llena con el Javascript -->
+        <swiper-container class="mySwiper contenedor__pictures" pagination="true" effect="coverflow" grab-cursor="true"
+            centered-slides="true" slides-per-view="auto" coverflow-effect-rotate="50" coverflow-effect-stretch="0"
+            coverflow-effect-depth="100" coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true">
+
+        </swiper-container>
+    </section>
+
     <section class="section__personajes">
+        <p>Characters</p>
+        <!-- Se llena con el Javascript -->
+        <div class="contenedor__personajes">
+
+        </div>
 
     </section>
 
 </body>
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
 <script src="../JS/anime.js"></script>
+
 </html>

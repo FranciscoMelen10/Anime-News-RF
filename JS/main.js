@@ -69,7 +69,7 @@ try {
 }
 
 
-function abrir_anime(id){
-    const url = `/HTML/anime.html?id=${id}`;
-    window.open(url);
+function abrir_anime(id) {
+    const url = `./HTML/anime.html?id=${id}`;
+    location.href = url;
 }
