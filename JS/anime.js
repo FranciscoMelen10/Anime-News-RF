@@ -22,15 +22,21 @@ try {
             // LLenar contenedor de personajes
             info.data.map((items, index) => {
                 personajes = ` 
-                    <img src="${items.character.images.webp.image_url}" alt="Imagen">
+                <div class="swiper mySwiper">
+                <img class="img__char" src="${items.character.images.webp.image_url}" alt="Imagen">
+                <h1 class="name__anime">${items.character.name}</h1>
+                </div> 
                 `
                 contenedor__personajes.innerHTML += personajes;
                 console.log(index)
             });
         });
+
 } catch (error) {
     console.error(error);
 }
+
+
 
 try {
     fetch(query_pictures)
@@ -41,6 +47,7 @@ try {
                 pictures = ` 
                 <swiper-slide>
                     <img src="${items.jpg.image_url}"/>
+
                 </swiper-slide>
                 `
                 contenedor__pictures.innerHTML += pictures;

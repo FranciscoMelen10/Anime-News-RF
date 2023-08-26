@@ -54,3 +54,38 @@ swiper-slide img {
         height: auto;
     }
 }
+
+html,body{
+    height: 100%;
+}
+
+body{
+    background-color: #323232;
+    font-size: Helvetica;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+.img__char{
+    width: 300px;
+    height: 500px;
+    background-color: #323232;
+    box-shadow: 0 0 20px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    position: relative; /* Agregamos posición relativa */
+    display: inline-block;
+}
+
+.name__anime {
+    text-align: center;
+    font-size: 18px;
+    z-index: 1000;
+    color: aliceblue;
+    position: absolute; 
+    bottom: -10px; 
+    left: 0; 
+    width: 100%; 
+}
