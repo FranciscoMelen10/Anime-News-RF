@@ -15,21 +15,40 @@ let contenedor__pictures = document.querySelector(".contenedor__pictures")
 let personajes = ""
 let pictures = ""
 
+// Varible para identificar el personaje nulo de la api
+let texto__invalido = "questionmark"
+
 try {
     fetch(query_personajes)
         .then(resp => resp.json())
         .then(info => {
             // LLenar contenedor de personajes
             info.data.map((items, index) => {
-                personajes = ` 
-                <div class="swiper mySwiper">
-                <img class="img__char" src="${items.character.images.webp.image_url}" alt="Imagen">
-                <h1 class="name__anime">${items.character.name}</h1>
-                </div> 
-                `
-                contenedor__personajes.innerHTML += personajes;
-                console.log(index)
+                
+                /*
+                url_personaje: Esta variable tiene como función transformar la url en un string para comprobar 
+                si dentro de la url contiene la imagen del personaje en su dirección para 
+                mostrarlo o no en pantalla y omitirla con un mensaje en consola ubicando 
+                la posición de las imagenes con este problema
+                */
+                let url_personaje = `"${items.character.images.webp.image_url}"`
+
+                // Comprueba si encuentra la imagen del personaje dentro de la api y si no la encuentra no la muestra en pantalla e imprime la posición de cada una de estas
+                if (url_personaje.includes(texto__invalido) != true) {
+                    personajes = ` 
+                    <div class="swiper mySwiper">
+                    <img class="img__char img_numero${index}" src="${items.character.images.webp.image_url}" alt="Imagen">
+                    <h1 class="name__anime">${items.character.name}</h1>
+                    </div> 
+                    `
+                    contenedor__personajes.innerHTML += personajes;
+                } else {
+                    console.log("Se encontro una incognita en la posición ", index)
+                }
+
+
             });
+            console.log(info)
         });
 
 } catch (error) {
