@@ -7,8 +7,8 @@ const id = url_parametro.get('id') //Valor del id del anime anteriormente selecc
 const query_personajes = `https://api.jikan.moe/v4/anime/${id}/characters`
 const query_pictures = `https://api.jikan.moe/v4/anime/${id}/pictures`
 
-
-const contenedor__personajes = document.querySelector(".contenedor__personajes")
+const contenedor__personajes__main = document.querySelector(".contenedor__personajes__main")
+const contenedor__personajes__ramdom = document.querySelector(".contenedor__personajes__ramdom")
 let contenedor__pictures = document.querySelector(".contenedor__pictures")
 
 // Auxiliares para llenar el HTML
@@ -35,13 +35,26 @@ try {
 
                 // Comprueba si encuentra la imagen del personaje dentro de la api y si no la encuentra no la muestra en pantalla e imprime la posición de cada una de estas
                 if (url_personaje.includes(texto__invalido) != true) {
-                    personajes = ` 
-                    <div class="swiper mySwiper">
-                    <img class="img__char img_numero${index}" src="${items.character.images.webp.image_url}" alt="Imagen">
-                    <h1 class="name__anime">${items.character.name}</h1>
-                    </div> 
-                    `
-                    contenedor__personajes.innerHTML += personajes;
+
+                    // Clasifica a los personajes principales y los de supporting, en donde los ubica a cada uno en su divisón
+                    if(items.role === "Main"){
+                        personajes = ` 
+                        <div class="swiper mySwiper">
+                        <img class="img__char img_numero${index}" src="${items.character.images.webp.image_url}" alt="Imagen">
+                        <h1 class="name__anime">${items.character.name}</h1>
+                        </div> 
+                        `
+                        contenedor__personajes__main.innerHTML += personajes;
+                    }else{
+                        personajes = ` 
+                        <div class="swiper mySwiper">
+                        <img class="img__char img_numero${index}" src="${items.character.images.webp.image_url}" alt="Imagen">
+                        <h1 class="name__anime">${items.character.name}</h1>
+                        </div> 
+                        `
+                        contenedor__personajes__ramdom.innerHTML += personajes;
+                    }
+
                 } else {
                     console.log("Se encontro una incognita en la posición ", index)
                 }

@@ -1,62 +1,6 @@
-.section__personajes {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-p {
-    font-size: 60px;
-    font-family: 'Bangers', cursive;
-    text-align: center;
-
-}
-
-.contenedor__personajes {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 25px;
-    justify-content: center;
-}
-
-.contenedor__personajes img {
-    width: 300px;
-    height: 500px;
-}
-
-
-swiper-container {
-    width: 100%;
-    padding: 50px 0px;
-}
-
-swiper-slide {
-    background-position: center;
-    background-size: cover;
-    width: 500px;
-    height: 100%;
-}
-
-swiper-slide img {
-    object-fit: fill;
-    width: 100%;
-    height: 100%;
-}
-
-
-@media screen and (max-width: 640px) {
-    swiper-slide {
-        width: 90%;
-    }
-
-    .section__personajes img {
-        width: 100%;
-        height: auto;
-    }
-}
-
 html,body{
     height: 100%;
+    width: 100%;
 }
 
 body{
@@ -87,5 +31,65 @@ body{
     position: absolute; 
     bottom: -10px; 
     left: 0; 
-    width: 100%; 
+    width: 100%;
 }
+
+
+.section__personajes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+p {    
+    color: aliceblue;
+    font-size: 60px;
+    font-family: 'Bangers', cursive;
+    text-align: center;
+
+}
+
+.contenedor__personajes__main, .contenedor__personajes__ramdom {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+}
+
+.section__personajes img {
+    width: 300px;
+    height: 500px;
+}
+
+
+swiper-container {
+    width: 100%;
+    padding: 50px 0px;
+}
+
+swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 500px;
+    height: 100%;
+}
+
+swiper-slide img {
+    object-fit: fill;
+    width: 100%;
+    height: 100%;
+}
+
+
+@media screen and (max-width: 640px) {
+    swiper-slide {
+        width: 90%;
+    }
+
+    .section__personajes img {
+        width: auto;
+        height: auto;
+    }
+}
+
