@@ -10,7 +10,60 @@ body{
     color: #000;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
 }
+
+.section__info__anime{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+
+}
+
+
+
+
+
+.info__principal__anime{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Bangers', cursive;
+
+}
+
+
+.img__info__anime{
+    width: 40%;
+    height: 80%;
+    object-fit: fill;
+
+}
+
+.contenedor__info__anime{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+}
+
+.info_principal{
+    font-size: 30px;
+    font-family: 'Bangers', cursive;
+
+}   
+
+.sypnosis{
+    font-size: 30px;
+    
+
+}
+
+span{
+    color: rgb(255, 255, 0);
+}   
 
 .img__char{
     width: 300px;
@@ -40,14 +93,16 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    
 }
 
-p {    
+
+
+.titules_section{    
     color: aliceblue;
     font-size: 60px;
     font-family: 'Bangers', cursive;
     text-align: center;
-
 }
 
 .contenedor__personajes__main, .contenedor__personajes__ramdom {

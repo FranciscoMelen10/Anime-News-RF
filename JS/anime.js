@@ -4,19 +4,74 @@ const url_parametro = new URLSearchParams(window.location.search);
 const id = url_parametro.get('id') //Valor del id del anime anteriormente seleccionado para hacer consultas a la API 
 
 // Consultas a la API
+const query_anime = `https://api.jikan.moe/v4/anime/${id}/full`
 const query_personajes = `https://api.jikan.moe/v4/anime/${id}/characters`
 const query_pictures = `https://api.jikan.moe/v4/anime/${id}/pictures`
 
+const info__principal__anime = document.querySelector(".info__principal__anime")
 const contenedor__personajes__main = document.querySelector(".contenedor__personajes__main")
 const contenedor__personajes__ramdom = document.querySelector(".contenedor__personajes__ramdom")
 let contenedor__pictures = document.querySelector(".contenedor__pictures")
+let sypnosis = document.querySelector(".sypnosis")
 
 // Auxiliares para llenar el HTML
+let info_anime = ""
 let personajes = ""
 let pictures = ""
 
 // Varible para identificar el personaje nulo de la api
 let texto__invalido = "questionmark"
+
+//Llenar información general del anime
+try {
+    fetch(query_anime)
+        .then(resp => resp.json())
+        .then(info => {
+            let fecha_creacion = `${info.data.aired.prop.from.day}/${info.data.aired.prop.from.month}/${info.data.aired.prop.from.year}`
+            info_anime = ` 
+            <img class="img__info__anime" src="${info.data.images.jpg.large_image_url}"/>
+                <div class="contenedor__info__anime">
+                <p class="info_name info_principal">Title:<span class="span_anime">${info.data.title}</span></p>
+                <p class="info_rank info_principal">Rank:<span class="span_rank">${info.data.rank}</span></p>
+                <p class="info_source info_principal">Source:<span class="span_source">${info.data.source}</span></p>
+                <p class="info_episodes info_principal">Total Episodes:<span class="span_episodes">${info.data.episodes}</span></p>
+                <p class="info_from info_principal">From:<span class="span_info">${fecha_creacion}</span></p>
+            </div>
+                `
+            info__principal__anime.innerHTML += info_anime;
+
+
+            info_anime = ` 
+            <p>${info.data.synopsis}</p>
+            `
+            sypnosis.innerHTML += info_anime;
+
+
+        });
+} catch (error) {
+    console.error(error);
+}
+
+//Llenar carrusel
+try {
+    fetch(query_pictures)
+        .then(resp => resp.json())
+        .then(info => {
+            // llenar carusel de pictures del anime
+            info.data.map((items) => {
+                pictures = ` 
+                <swiper-slide>
+                    <img src="${items.jpg.image_url}"/>
+
+                </swiper-slide>
+                `
+                contenedor__pictures.innerHTML += pictures;
+            });
+
+        });
+} catch (error) {
+    console.error(error);
+}
 
 try {
     fetch(query_personajes)
@@ -24,7 +79,7 @@ try {
         .then(info => {
             // LLenar contenedor de personajes
             info.data.map((items, index) => {
-                
+
                 /*
                 url_personaje: Esta variable tiene como función transformar la url en un string para comprobar 
                 si dentro de la url contiene la imagen del personaje en su dirección para 
@@ -37,7 +92,7 @@ try {
                 if (url_personaje.includes(texto__invalido) != true) {
 
                     // Clasifica a los personajes principales y los de supporting, en donde los ubica a cada uno en su divisón
-                    if(items.role === "Main"){
+                    if (items.role === "Main") {
                         personajes = ` 
                         <div class="swiper mySwiper">
                         <img class="img__char img_numero${index}" src="${items.character.images.webp.image_url}" alt="Imagen">
@@ -45,7 +100,7 @@ try {
                         </div> 
                         `
                         contenedor__personajes__main.innerHTML += personajes;
-                    }else{
+                    } else {
                         personajes = ` 
                         <div class="swiper mySwiper">
                         <img class="img__char img_numero${index}" src="${items.character.images.webp.image_url}" alt="Imagen">
@@ -70,25 +125,6 @@ try {
 
 
 
-try {
-    fetch(query_pictures)
-        .then(resp => resp.json())
-        .then(info => {
-            // llenar carusel de pictures del anime
-            info.data.map((items) => {
-                pictures = ` 
-                <swiper-slide>
-                    <img src="${items.jpg.image_url}"/>
-
-                </swiper-slide>
-                `
-                contenedor__pictures.innerHTML += pictures;
-            });
-
-        });
-} catch (error) {
-    console.error(error);
-}
 
 
 
