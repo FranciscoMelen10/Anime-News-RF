@@ -1,7 +1,15 @@
-body{
-    background-color: #323232;
+
+:root{
+    --fondo_oscuro:#0D1F23;
+    --fondo_oscuro2:#132E35;
+    --fondo_oscuro3:#2D4A53;
+    --fondo_claro:#69818d;
+    --color_letras:#ffffff;
+}
+
+body {
+    background-color: var(--fondo_oscuro);
     font-size: Helvetica;
-    font-size: 14px;
     color: #000;
     margin: 0;
     padding: 0;
@@ -11,27 +19,32 @@ body{
 
 }
 
-.section__info__anime{
-    display: flex;
-    flex-direction: column;
-    width: 90%;
-    margin: auto;
-    color: #fff;
+section {
+    border: var(--color_letras) solid 5px;
     margin: 50px auto;
-    padding: 30px;
-    border: #fff solid;
+    width: 80%;
+    background-color: var(--fondo_oscuro2);
+    border-radius: 50px;
 
 }
 
-.div__info__anime{
+
+.section__info__anime {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    color: var(--color_letras);
+    margin: 50px auto;
+    padding: 20px;
+
+}
+
+.div__info__anime {
     margin: 40px 0;
 }
 
 
-
-
-
-.info__principal__anime{
+.info__principal__anime {
     width: 100%;
     display: flex;
     justify-content: space-around;
@@ -39,58 +52,40 @@ body{
     font-family: 'Bangers', cursive;
 }
 
-
-.img__info__anime{
+.img__info__anime {
     width: 40%;
     height: 80%;
-    object-fit: fill;
+    object-fit: scale-down;
 
 }
 
-.contenedor__info__anime{
+.contenedor__info__anime {
     width: 40%;
     display: flex;
     flex-direction: column;
 
 }
 
-.info_principal{
+.info_principal {
     font-size: 30px;
     font-family: 'Bangers', cursive;
 
 
-}   
-
-.sypnosis{
-    font-size: 30px;
-    
-
 }
 
-span{
-    color: rgb(255, 255, 0);
-}   
+.sypnosis {
+    font-size: 30px;
+}
 
-.img__char{
-    width: 300px;
-    height: 500px;
-    background-color: #323232;
-    box-shadow: 0 0 20px;
-    border: 1px solid #ccc;
-    padding: 20px;
-    position: relative; /* Agregamos posición relativa */
-    display: inline-block;
+span {
+    color: rgb(255, 255, 0);
 }
 
 .name__anime {
     text-align: center;
-    font-size: 18px;
-    z-index: 1000;
-    color: aliceblue;
-    position: absolute; 
-    bottom: -10px; 
-    left: 0; 
-    width: 100%;
+    color: var(--color_letras);
+    width: 50%;
+
 }
 
 
@@ -99,28 +94,55 @@ span{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
+
 }
 
-
-
-.titules_section{    
-    color: aliceblue;
+.titules_section {
+    color: var(--color_letras);
     font-size: 60px;
     font-family: 'Bangers', cursive;
     text-align: center;
 }
 
-.contenedor__personajes__main, .contenedor__personajes__ramdom {
+.contenedor__personajes__main,
+.contenedor__personajes__ramdom {
     display: flex;
     flex-wrap: wrap;
-    gap: 25px;
+    gap: 40px;
     justify-content: center;
+    border: var(--color_letras) solid 5px;
+    border-radius: 15px;
+    padding: 30px 5%;
+    margin: 30px;
+    background: var(--fondo_oscuro3);
+
 }
 
 .section__personajes img {
-    width: 300px;
-    height: 500px;
+    width: 200px;
+    height: 300px;
+    padding: 30px 30px 0px 30px;
+    border-radius: 50px;
+
+}
+
+.contenedor__personajes__main div,
+.contenedor__personajes__ramdom div {
+    border-radius: 30px;
+    box-shadow: 0 0 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contenedor_personajes {
+    padding: 30px;
+    background: var(--fondo_claro);
+    border: var(--color_letras) solid 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -142,15 +164,20 @@ swiper-slide img {
     height: 100%;
 }
 
-
 @media screen and (max-width: 640px) {
+
+
     swiper-slide {
         width: 90%;
     }
 
     .section__personajes img {
-        width: auto;
-        height: auto;
+        padding: 10px;
     }
-}
 
+
+    .name__anime {
+        font-size: 20px;
+    }
+
+}

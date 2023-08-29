@@ -133,7 +133,7 @@ function cargar_personajes(info) {
                 // Clasifica a los personajes principales y los de supporting, en donde los ubica a cada uno en su divisón
                 if (info.data[index].role === "Main") {
                     personajes = ` 
-                    <div class="swiper mySwiper">
+                    <div class="swiper mySwiper contenedor_personajes">
                     <img class="img__char img_numero${index}" src="${info.data[index].character.images.webp.image_url}" alt="Imagen">
                     <h1 class="name__anime">${info.data[index].character.name}</h1>
                     </div> 
@@ -141,7 +141,7 @@ function cargar_personajes(info) {
                     contenedor__personajes__main.innerHTML += personajes;
                 } else {
                     personajes = ` 
-                    <div class="swiper mySwiper">
+                    <div class="swiper mySwiper contenedor_personajes">
                     <img class="img__char img_numero${index}" src="${info.data[index].character.images.webp.image_url}" alt="Imagen">
                     <h1 class="name__anime">${info.data[index].character.name}</h1>
                     </div> 
