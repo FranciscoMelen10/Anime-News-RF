@@ -3,14 +3,13 @@
     --fondo_oscuro:#0D1F23;
     --fondo_oscuro2:#132E35;
     --fondo_oscuro3:#2D4A53;
-    --fondo_claro:#69818d;
     --color_letras:#ffffff;
+    --efecto_neon:inset 0 0 1em #10f3d9,
+    0 0 1em #10f3d9;
 }
 
 body {
     background-color: var(--fondo_oscuro);
-    font-size: Helvetica;
-    color: #000;
     margin: 0;
     padding: 0;
     display: flex;
@@ -25,6 +24,7 @@ section {
     width: 80%;
     background-color: var(--fondo_oscuro2);
     border-radius: 50px;
+    box-shadow: var(--efecto_neon);
 
 }
 
@@ -35,12 +35,23 @@ section {
     margin: auto;
     color: var(--color_letras);
     margin: 50px auto;
-    padding: 20px;
-
+    padding: 30px;
 }
 
-.div__info__anime {
-    margin: 40px 0;
+.icons_info{
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+.div__info__anime{
+    display: flex;
+    justify-content: space-around;
+}
+
+.icons{
+    height: 50%;
+    width: 80%;
 }
 
 
@@ -48,36 +59,30 @@ section {
     width: 100%;
     display: flex;
     justify-content: space-around;
-    align-items: center;
-    font-family: 'Bangers', cursive;
-}
-
-.img__info__anime {
-    width: 40%;
-    height: 80%;
-    object-fit: scale-down;
-
 }
 
 .contenedor__info__anime {
-    width: 40%;
+    padding: 10px;
     display: flex;
     flex-direction: column;
-
+    justify-content: space-between;
 }
 
 .info_principal {
     font-size: 30px;
     font-family: 'Bangers', cursive;
-
-
 }
 
-.sypnosis {
+.sypnosis p{
     font-size: 30px;
+    border: var(--color_letras) solid 3px;
+    border-radius: 15px;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: var(--fondo_oscuro3);
 }
 
-span {
+.icons_info span {
     color: rgb(255, 255, 0);
 }
 
@@ -85,7 +90,15 @@ span {
     text-align: center;
     color: var(--color_letras);
     width: 50%;
+    font-size: 25px;
+}
 
+.text_more{
+    opacity: 0;
+    color: var(--color_letras);
+    font-size: 30px;
+    position: absolute;
+    transition: opacity 0.3s;
 }
 
 
@@ -110,18 +123,38 @@ span {
     flex-wrap: wrap;
     gap: 40px;
     justify-content: center;
-    border: var(--color_letras) solid 5px;
+    border: var(--color_letras) solid 3px;
     border-radius: 15px;
     padding: 30px 5%;
-    margin: 30px;
+    margin: 50px;
     background: var(--fondo_oscuro3);
+}
 
+
+.contenedor_personajes:hover .text_more{
+    opacity: 1;
+
+}
+
+
+.contenedor_personajes:hover{
+    filter: brightness(30%); 
+    transform: scale(1.1);
+    
+}
+
+
+
+
+.img__info__anime{
+    width: 300px;
+    border-radius: 30px;
 }
 
 .section__personajes img {
     width: 200px;
     height: 300px;
-    padding: 30px 30px 0px 30px;
+    padding: 20px 20px 0px 20px;
     border-radius: 50px;
 
 }
@@ -134,16 +167,23 @@ span {
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    box-shadow: var(--efecto_neon);
+    transition: transform 0.3s;
+
+
+
 }
 
 .contenedor_personajes {
-    padding: 30px;
     background: var(--fondo_claro);
-    border: var(--color_letras) solid 5px;
+    border: var(--color_letras) solid 4px;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+
 
 
 swiper-container {
@@ -164,7 +204,17 @@ swiper-slide img {
     height: 100%;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 850px) {
+    
+
+    .img__info__anime{
+        width: 100%;
+    }
+
+    .info__principal__anime {
+        flex-direction: column;
+        align-items: center;
+    }
 
 
     swiper-slide {
@@ -172,12 +222,30 @@ swiper-slide img {
     }
 
     .section__personajes img {
-        padding: 10px;
+        padding: 20px;
     }
 
 
-    .name__anime {
+    .contenedor__info__anime{
+        display: block;
+        margin-top: 20px;
+    }
+
+    .sypnosis {
         font-size: 20px;
+    }
+
+    .div__info__anime{
+        display: flex;
+        flex-direction: column;
+        align-items: self-start;
+
+        
+    }
+
+    .icons{
+        height: 30px;
+        width: 30px;
     }
 
 }

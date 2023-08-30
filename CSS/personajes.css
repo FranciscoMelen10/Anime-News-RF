@@ -1,0 +1,64 @@
+:root{
+    --fondo_oscuro:#0D1F23;
+    --fondo_oscuro2:#132E35;
+    --fondo_oscuro3:#2D4A53;
+    --fondo_claro:#69818d;
+    --color_letras:#ffffff;
+    --efecto_neon:inset 0 0 1em #10f3d9,
+    0 0 1em #10f3d9;
+}
+
+body {
+    background-color: var(--fondo_oscuro);
+    font-family: 'Bangers', cursive;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.section_character {
+    border: var(--color_letras) solid 5px;
+    bottom: 0;
+    margin: auto;
+    width: 80%;
+    height: 100%;
+    background-color: var(--fondo_oscuro2);
+    border-radius: 50px;
+    box-shadow: var(--efecto_neon);
+    display: flex;
+    align-items: center;
+    padding: 30px;
+    justify-content: space-evenly;
+    color: var(--color_letras);
+
+}
+
+.section_character img{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+    object-fit: cover;
+}
+
+.contenedor__info_character{
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+@media screen and (max-width: 850px) {
+    
+    .section_character img{
+        width: 60%;
+    }
+
+    .section_character {
+        flex-direction: column;
+    }
+}

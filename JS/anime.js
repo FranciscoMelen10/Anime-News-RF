@@ -34,21 +34,49 @@ try {
         .then(info => {
             let fecha_creacion = `${info.data.aired.prop.from.day}/${info.data.aired.prop.from.month}/${info.data.aired.prop.from.year}`
             info_anime = ` 
-                <img class="img__info__anime" loading="lazy" src="${info.data.images.jpg.large_image_url}"/>
-                    <div class="contenedor__info__anime">
-                    <p class="info_name info_principal" loading="lazy">Title: <span class="span_anime">${info.data.title}</span></p>
-                    <p class="info_rank info_principal" loading="lazy">Rank: <span class="span_rank">${info.data.rank}</span></p>
-                    <p class="info_source info_principal" loading="lazy">Source: <span class="span_source">${info.data.source}</span></p>
-                    <p class="info_episodes info_principal" loading="lazy">Total Episodes: <span class="span_episodes">${info.data.episodes}</span></p>
-                    <p class="info_from info_principal" loading="lazy">From: <span class="span_info">${fecha_creacion}</span></p>
+                <img class="img__info__anime" loading="lazy" src="${info.data.images.jpg.large_image_url}" />
+                <div class="contenedor__info__anime ">
+                    <span class="span_anime info_principal">${info.data.title}</span>
+                        <div class="div__info__anime">
+
+                            <div class="icons_info">
+                                <p class="info_source" loading="lazy">Source: 
+                                    <span class="span_source">${info.data.source}</span>
+                                </p>
+                                <box-icon type='solid' class="icons" name='book'></box-icon>
+                            </div>
+
+                            <div class="icons_info">
+                                <p class="info_episodes " loading="lazy">Total Episodes: 
+                                    <span class="span_episodes">${info.data.episodes}</span>
+                                </p>
+                                <box-icon type='solid' class="icons" name='videos'></box-icon>
+                            </div>
+
+                            <div class="icons_info">
+                                <p class="info_from " loading="lazy">From: 
+                                    <span class="span_info">${fecha_creacion}</span>
+                                </p>
+                                <box-icon name='calendar' class="icons"></box-icon>
+                            </div>
+
+                            <div class="icons_info">
+                                <p class="info_rank " loading="lazy">Rank: 
+                                    <span class="span_rank">${info.data.rank}</span>
+                                </p>
+                                <box-icon name='heart' class="icons" type='solid' ></box-icon>
+                            </div>
+
+                        </div>
+
+                    <articule class="contenedor__sypnosis ">
+                        <p class="info_principal">Sypnosis:</p>
+                        <p class="sypnosis">${info.data.synopsis}</p>
+                    </articule>
                 </div>
+
             `
             info__principal__anime.innerHTML += info_anime;
-
-            info_anime = ` 
-                <p>${info.data.synopsis}</p>
-                `
-            sypnosis.innerHTML += info_anime;
         });
 } catch (error) {
     console.error(error);
@@ -92,7 +120,7 @@ window.onscroll = function () {
         sumarle cierta cantidad, la acción llegaria un poco antes por lo que se le suma a la 
         altura del viewport antes de llegar abajo.
     */
-    if ((window.innerHeight + Math.round(window.scrollY)) + 1200 > document.body.offsetHeight) {
+    if ((window.innerHeight + Math.round(window.scrollY)) + 1400 > document.body.offsetHeight) {
         try {
             fetch(query_personajes)
                 .then(resp => resp.json())
@@ -116,6 +144,7 @@ function cargar_personajes(info) {
             limite = (controlador + personajes_faltantes)
             console.log("personajes_faltantes ", personajes_faltantes)
             console.log("limite ", limite)
+            total_personajes = info.data.length
         }
 
         for (let index = controlador; index < limite; index++) {
@@ -133,24 +162,39 @@ function cargar_personajes(info) {
                 // Clasifica a los personajes principales y los de supporting, en donde los ubica a cada uno en su divisón
                 if (info.data[index].role === "Main") {
                     personajes = ` 
-                    <div class="swiper mySwiper contenedor_personajes">
-                    <img class="img__char img_numero${index}" src="${info.data[index].character.images.webp.image_url}" alt="Imagen">
-                    <h1 class="name__anime">${info.data[index].character.name}</h1>
+                    <div class="swiper mySwiper contenedor_personajes" onclick="abrir_anime(${info.data[index].character.mal_id})">
+                        <img class="img__char img_numero${index}" src="${info.data[index].character.images.webp.image_url}" alt="Imagen"/>
+                        <h1 class="name__anime">${info.data[index].character.name}</h1>
+                        <h1 class="text_more">Click More!</h1>
+
                     </div> 
                     `
                     contenedor__personajes__main.innerHTML += personajes;
                 } else {
                     personajes = ` 
-                    <div class="swiper mySwiper contenedor_personajes">
-                    <img class="img__char img_numero${index}" src="${info.data[index].character.images.webp.image_url}" alt="Imagen">
-                    <h1 class="name__anime">${info.data[index].character.name}</h1>
+                    <div class="swiper mySwiper contenedor_personajes" onclick="abrir_anime(${info.data[index].character.mal_id})">
+                        <img class="img__char img_numero${index}" src="${info.data[index].character.images.webp.image_url}" alt="Imagen" />
+                        <h1 class="name__anime">${info.data[index].character.name}</h1>
+                        <h1 class="text_more">Click More!</h1>
                     </div> 
                     `
                     contenedor__personajes__ramdom.innerHTML += personajes;
+
                 }
             }
         }
         controlador += 20 // Aumenta el control de las imagenes para mostrar a los personajes que hacen faltan
         limite += 20 // Se aumenta el limite para seguir buscando el final sin sobrecargar mucho la pagina
     }
+
 }
+
+
+function abrir_anime(id_personaje) {
+    const url = `personajes.html?id=${id_personaje}`;
+    location.href = url;
+}
+
+
+
+
