@@ -8,7 +8,7 @@ const query_anime = `https://api.jikan.moe/v4/anime/${id}/full`
 const query_personajes = `https://api.jikan.moe/v4/anime/${id}/characters`
 const query_pictures = `https://api.jikan.moe/v4/anime/${id}/pictures`
 
-const info__principal__anime = document.querySelector(".info__principal__anime")
+const div__info__anime = document.querySelector(".div__info__anime")
 const contenedor__personajes__main = document.querySelector(".contenedor__personajes__main")
 const contenedor__personajes__ramdom = document.querySelector(".contenedor__personajes__ramdom")
 let contenedor__pictures = document.querySelector(".contenedor__pictures")
@@ -43,40 +43,40 @@ try {
                                 <p class="info_source" loading="lazy">Source: 
                                     <span class="span_source">${info.data.source}</span>
                                 </p>
-                                <box-icon type='solid' class="icons" name='book'></box-icon>
+                                <box-icon type='solid' class="icons" color="white" name='book'></box-icon>
                             </div>
 
                             <div class="icons_info">
                                 <p class="info_episodes " loading="lazy">Total Episodes: 
                                     <span class="span_episodes">${info.data.episodes}</span>
                                 </p>
-                                <box-icon type='solid' class="icons" name='videos'></box-icon>
+                                <box-icon type='solid' class="icons" color="white" name='videos'></box-icon>
                             </div>
 
                             <div class="icons_info">
                                 <p class="info_from " loading="lazy">From: 
                                     <span class="span_info">${fecha_creacion}</span>
                                 </p>
-                                <box-icon name='calendar' class="icons"></box-icon>
+                                <box-icon name='calendar' class="icons" color="white" type='solid'></box-icon>
                             </div>
 
                             <div class="icons_info">
                                 <p class="info_rank " loading="lazy">Rank: 
                                     <span class="span_rank">${info.data.rank}</span>
                                 </p>
-                                <box-icon name='heart' class="icons" type='solid' ></box-icon>
+                                <box-icon name='heart' class="icons" type='solid' color="red" ></box-icon>
                             </div>
 
                         </div>
 
-                    <articule class="contenedor__sypnosis ">
+                    <articule>
                         <p class="info_principal">Sypnosis:</p>
                         <p class="sypnosis">${info.data.synopsis}</p>
                     </articule>
                 </div>
 
             `
-            info__principal__anime.innerHTML += info_anime;
+            div__info__anime.innerHTML += info_anime;
         });
 } catch (error) {
     console.error(error);
@@ -120,7 +120,7 @@ window.onscroll = function () {
         sumarle cierta cantidad, la acción llegaria un poco antes por lo que se le suma a la 
         altura del viewport antes de llegar abajo.
     */
-    if ((window.innerHeight + Math.round(window.scrollY)) + 1400 > document.body.offsetHeight) {
+    if ((window.innerHeight + Math.round(window.scrollY)) + 1000 > document.body.offsetHeight) {
         try {
             fetch(query_personajes)
                 .then(resp => resp.json())
@@ -162,7 +162,7 @@ function cargar_personajes(info) {
                 // Clasifica a los personajes principales y los de supporting, en donde los ubica a cada uno en su divisón
                 if (info.data[index].role === "Main") {
                     personajes = ` 
-                    <div class="swiper mySwiper contenedor_personajes" onclick="abrir_anime(${info.data[index].character.mal_id})">
+                    <div class="swiper mySwiper contenedor_personajes" onclick="abrir_anime(${info.data[index].character.mal_id}, ${id}, ${index})">
                         <img class="img__char img_numero${index}" src="${info.data[index].character.images.webp.image_url}" alt="Imagen"/>
                         <h1 class="name__anime">${info.data[index].character.name}</h1>
                         <h1 class="text_more">Click More!</h1>
@@ -172,13 +172,14 @@ function cargar_personajes(info) {
                     contenedor__personajes__main.innerHTML += personajes;
                 } else {
                     personajes = ` 
-                    <div class="swiper mySwiper contenedor_personajes" onclick="abrir_anime(${info.data[index].character.mal_id})">
+                    <div class="swiper mySwiper contenedor_personajes" onclick="abrir_anime(${info.data[index].character.mal_id}, ${id}, ${index})">
                         <img class="img__char img_numero${index}" src="${info.data[index].character.images.webp.image_url}" alt="Imagen" />
                         <h1 class="name__anime">${info.data[index].character.name}</h1>
                         <h1 class="text_more">Click More!</h1>
                     </div> 
                     `
                     contenedor__personajes__ramdom.innerHTML += personajes;
+
 
                 }
             }
@@ -190,8 +191,8 @@ function cargar_personajes(info) {
 }
 
 
-function abrir_anime(id_personaje) {
-    const url = `personajes.html?id=${id_personaje}`;
+function abrir_anime(id_personaje, id_anime, indice) {
+    const url = `personajes.html?id=${id_personaje}&anime=${id_anime}&autor=${indice}`;
     location.href = url;
 }
 

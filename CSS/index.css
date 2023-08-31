@@ -4,16 +4,12 @@ body {
     padding: 0;
     transition: 1s ease all;
     background-color: #ffffff;
-    background-image: url("/IMG/27489.png");
+    background-image: url("/IMG/Fondo\ Claro.png");
     &.dark{
       background: #000000ef;
       transition: 0.5s ease all;
-      background-image: url("/IMG/fa650512d7d0c1ee3a871b058bbc846a.jpg");
+      background-image: url("/IMG/Fondo\ Oscuro.jpg");
     }
-
-
-
-
   }
 /*tablas pa imagenes*/
 table {
