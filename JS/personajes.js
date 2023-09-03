@@ -1,3 +1,10 @@
+window.onload = function(){
+    $("#onload").fadeOut();
+    $('section').removeClass("hidden")
+    $('div').removeClass("hidden")
+    $('swiper-container').removeClass("hidden")
+    document.getElementById("onload").classList.add("invisible")
+}
 
 //Pedir el id del formulario principal
 const url_parametro = new URLSearchParams(window.location.search);

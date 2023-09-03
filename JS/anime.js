@@ -1,3 +1,10 @@
+window.onload = function(){
+    $("#onload").fadeOut();
+    $('section').removeClass("hidden")
+    $('div').removeClass("hidden")
+    $('swiper-container').removeClass("hidden")
+    document.getElementById("onload").classList.add("invisible")
+}
 
 //Pedir el id del formulario principal
 const url_parametro = new URLSearchParams(window.location.search);
@@ -105,7 +112,6 @@ try {
 
 
 
-
 /* 
     Para no cargar todas las imagenes de golpe y no tumbar la pagina (Me paso con one piece)
     se hizo esta funcion para cargar a cierto despliegue del scroll carga de 
@@ -195,7 +201,3 @@ function abrir_anime(id_personaje, id_anime, indice) {
     const url = `personajes.html?id=${id_personaje}&anime=${id_anime}&autor=${indice}`;
     location.href = url;
 }
-
-
-
-

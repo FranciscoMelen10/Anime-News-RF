@@ -6,41 +6,6 @@ SwitchLB.addEventListener('click', () => {
     SwitchLB.classList.toggle('active');
 });
 
-/* Primera API (Es mejor porque me permite usar más animes pero es limitada a 100 promesas al dia)
-
-Link de uso: https://rapidapi.com/brian.rofiq/api/anime-db/ 
-
-const url = 'https://anime-db.p.rapidapi.com/anime?page=1&size=10';
-const options = {
-    method: 'GET',
-    headers: {
-        'X-RapidAPI-Key': '5fb990c64emshec4427b6f88bd84p173791jsn1d626afcd5e5',
-        'X-RapidAPI-Host': 'anime-db.p.rapidapi.com'
-    }
-};
-
-try {
-    fetch(url, options)
-    .then(resp => resp.json())
-    .then(info => {
-        info.data.map(items => {
-            console.log(items.title)
-        })
-    })
-} catch (error) {
-    console.error(error);
-}
-
-*/
-
-
-
-/* 
-Segunda API Gratis 
-
-Link de uso: https://docs.api.jikan.moe/#section/Information
-*/
-
 let informacion
 
 const API = "https://api.jikan.moe/v4/anime"

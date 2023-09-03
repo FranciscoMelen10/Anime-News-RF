@@ -18,10 +18,24 @@
 </head>
 
 <body>
+    <div class="loader_div " id="onload">
+        <div class="spinner " >
+            <div></div>   
+            <div></div>    
+            <div></div>    
+            <div></div>    
+            <div></div>    
+            <div></div>    
+            <div></div>    
+            <div></div>    
+            <div></div>    
+            <div></div>    
+          </div>
+      </div>
+    
+    <section class="section__info__anime hidden">
 
-    <section class="section__info__anime">
-
-        <div class=" div__info__anime">
+        <div class=" div__info__anime hidden">
             
 
         </div>
@@ -29,17 +43,17 @@
         
     </section>
 
-    <section class="section__pictures">
+    <section class="section__pictures hidden">
         <p class="titules_section">Pictures</p>
 
         <!-- Se llena con el Javascript -->
-        <swiper-container class="mySwiper contenedor__pictures" pagination="true" effect="coverflow" grab-cursor="true"
+        <swiper-container class="mySwiper contenedor__pictures hidden" pagination="true" effect="coverflow" grab-cursor="true"
             centered-slides="true" slides-per-view="auto" coverflow-effect-rotate="50" coverflow-effect-stretch="0"
             coverflow-effect-depth="100" coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true">
         </swiper-container>
     </section>
 
-    <section class="section__personajes">
+    <section class="section__personajes hidden">
 
         <!-- Se llena con el Javascript -->
         <p class="titules_section">Main Characters</p>
@@ -56,6 +70,8 @@
     </section>
 
 </body>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
 <script src="https://unpkg.com/boxicons@2.1.3/dist/boxicons.js"></script>
