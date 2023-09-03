@@ -2,27 +2,183 @@
     --background: #151718;
     --fondo_oscuro: #0D1F23;
     --fondo_oscuro2: #132E35;
-    --fondo_claro: #2D4A53;
     --color_letras: #ffffff;
     --efecto_neon: inset 0 0 1em #10f3d9,
         0 0 1em #10f3d9;
 }
 
 body {
-    background-color: var(--background);
-    font-family: 'Bangers', cursive;
-    margin: 0;
+  font-family: Arial, sans-serif;  
+  margin: 0;
+  padding: 0;
+  transition: 1s ease all;
+  background-color: #ffffff;
+  background-image: url("/IMG/Fondo\ Claro.png");
+  &.dark{
+    background: #000000ef;
+    transition: 0.5s ease all;
+    background-image: url("/IMG/Fondo\ Oscuro.jpg");
+  }
+}
+
+/*Todo el diseño del encabezado*/  
+
+
+.principal {
+  background-color: white;
+  padding: 0px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  font-family: "open sans", sans-serif;
+  z-index: 1000; 
+}
+
+
+header nav {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+
+
+.barra {
+  display: flex;
+  list-style-type: none;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+.barra a {
+  margin: 0 10px;
+  bottom: 50px;
+  color: #000000;
+}
+
+
+.logo {
+  font-size: 24px;
+  color: #018ABE;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.barra .current {
+  font-weight: bold;
+}
+  
+/*diseño aparte del encabezado*/  
+  section {
+    padding: 20px;
+  }
+  
+  article {
+    margin-bottom: 20px;
+  }
+  
+  article h2 {
+    font-size: 24px;
+  }
+  
+  footer {
+    background: linear-gradient(to right, #001B48, #02457A, #018ABE);
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }
+  
+
+/*Diseño del boton para cambiar entre modo nocturno */
+  .botonSwitch{
     padding: 0;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+    display: inline;
+    text-decoration: none;
+    
+  }
+
+  .SwitchLB{
+    display: inline-block;
+    width: 75px;
+    height: 35px;
+    background: #555;
+    border-radius: 100px;
+    position: relative;
+    cursor: pointer;
+  }
+  .SwitchLB::after{
+    position: absolute;
+    content: '';
+    width: 27px;
+    height: 27px;
+    background: #fff;
+    top: 4px;
+    left: 5px;
+    transition: 0.3s;
+    border-radius: 100px;
+  }
+
+  #SwitchIP:checked~ .SwitchLB{
+    background: #e76005;
+  }
+
+  #SwitchIP:checked~ .SwitchLB::after{
+    left: 45px;
+  }
+
+  #SwitchIP{
+    display: none;
+  }
+
+ i{
+  position: relative;
+  padding-right: 20px;
+  top: 10px;
+  left: 10px;
+  width: 15px;
+  height: 15px;
+ }
+
+ /*PORFIIIIIIIIIIIN cambio de diseño de pantalla a oscuro */
+
+ body.dark header{
+    background-color: rgb(48, 47, 47);
+    color: #9b1212;
+    transition: 1s ease all;
+
+  
+}
+
+  body.dark ul{
+    color: #f8f6f6;
+    transition: 1s ease all;
+
+    
+}
+
+  body.dark h2{
+    color: #ffffff;
+    transition: 1s ease all;
+
+  
+}
+
+
+  body.dark p{
+    color: #ffffff;
+    transition: 1s ease all;
+}
+
+body.dark a{
+  color: #ffffff;
+  transition: 1s ease all;
 }
 
 .section_character {
     border: var(--color_letras) solid 5px;
-    margin: 50px auto;
+    margin: 100px auto;
     width: 80%;
     background-color: var(--fondo_oscuro);
     border-radius: 50px;

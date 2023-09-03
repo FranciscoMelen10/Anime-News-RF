@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anime</title>
-    
+
     <link rel="stylesheet" href="../CSS/anime.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,37 +19,64 @@
 
 <body>
     <div class="loader_div " id="onload">
-        <div class="spinner " >
-            <div></div>   
-            <div></div>    
-            <div></div>    
-            <div></div>    
-            <div></div>    
-            <div></div>    
-            <div></div>    
-            <div></div>    
-            <div></div>    
-            <div></div>    
-          </div>
-      </div>
-    
+        <div class="spinner ">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <header class="secundario">
+
+    </header>
+    <header class="principal">
+
+        <ul>
+            <div class="menu">
+                <a href="#" class="logo">logo</a>
+                <nav class="barra">
+                    <a href="/index.html">Inicio</a>
+                    <a href="#">Acerca de</a>
+
+                    <div class="botonSwitch">
+
+                        <input type="checkbox" id="SwitchIP">
+                        <label for="SwitchIP" class="SwitchLB">
+                            <i id="sol" class="fa-regular fa-sun"></i>
+                            <i id="luna" class="fa-regular fa-moon"></i>
+                        </label>
+                    </div>
+                </nav>
+            </div>
+        </ul>
+
+    </header>
+
     <section class="section__info__anime hidden">
 
         <div class=" div__info__anime hidden">
-            
+
 
         </div>
-        
-        
+
+
     </section>
 
     <section class="section__pictures hidden">
         <p class="titules_section">Pictures</p>
 
         <!-- Se llena con el Javascript -->
-        <swiper-container class="mySwiper contenedor__pictures hidden" pagination="true" effect="coverflow" grab-cursor="true"
-            centered-slides="true" slides-per-view="auto" coverflow-effect-rotate="50" coverflow-effect-stretch="0"
-            coverflow-effect-depth="100" coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true">
+        <swiper-container class="mySwiper contenedor__pictures hidden" pagination="true" effect="coverflow"
+            grab-cursor="true" centered-slides="true" slides-per-view="auto" coverflow-effect-rotate="50"
+            coverflow-effect-stretch="0" coverflow-effect-depth="100" coverflow-effect-modifier="1"
+            coverflow-effect-slide-shadows="true">
         </swiper-container>
     </section>
 
@@ -69,10 +96,15 @@
 
     </section>
 
+
+    <footer>
+        <p>&copy; 2023 Anime News RF</p>
+    </footer>
+
 </body>
 
+<script src="https://kit.fontawesome.com/e84f521c03.js" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
 <script src="https://unpkg.com/boxicons@2.1.3/dist/boxicons.js"></script>
 

@@ -1,3 +1,11 @@
+window.onload = function(){
+    $("#onload").fadeOut();
+    $('section').removeClass("hidden")
+    $('div').removeClass("hidden")
+    $('swiper-container').removeClass("hidden")
+    document.getElementById("onload").classList.add("invisible")
+}
+
 // Obtén la referencia al elemento de entrada de texto y a la imagen
 const SwitchLB = document.querySelector('.SwitchLB');
 

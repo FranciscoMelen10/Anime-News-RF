@@ -6,6 +6,15 @@ window.onload = function(){
     document.getElementById("onload").classList.add("invisible")
 }
 
+// Obtén la referencia al elemento de entrada de texto y a la imagen
+const SwitchLB = document.querySelector('.SwitchLB');
+
+SwitchLB.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    SwitchLB.classList.toggle('active');
+});
+
+
 //Pedir el id del formulario principal
 const url_parametro = new URLSearchParams(window.location.search);
 const id = url_parametro.get('id') //Valor del id del anime anteriormente seleccionado para hacer consultas a la API 
