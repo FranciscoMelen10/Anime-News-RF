@@ -1,16 +1,16 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    transition: 1s ease all;
-    background-color: #ffffff;
-    background-image: url("/IMG/Fondo_Claro.png");
-    &.dark{
-      background: #000000ef;
-      transition: 0.5s ease all;
-      background-image: url("/IMG/Fondo_Oscuro.jpg");
-    }
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  transition: 1s ease all;
+  background-color: #ffffff;
+  background-image: url("../IMG/Fondo_Claro.png");
+  &.dark{
+    background: #000000ef;
+    transition: 0.5s ease all;
+    background-image: url("../IMG/Fondo_Oscuro.jpg");
   }
+}
 
   
   /*Todo el diseño del encabezado*/  
@@ -43,7 +43,7 @@ body {
   }
   
   .barra a {
-    margin: 0 10px;
+    margin: 0 30px;
     bottom: 50px;
     color: #000000;
   }
