@@ -37,8 +37,8 @@
             <a href="#" class="logo">logo</a>
             <nav class="barra">
 
-              <button class="home" ><a href="../index.html">Inicio</a></button>
-              <button class="botonhead"><a href="">Acerca de</a></button>    
+              <button class="home" onclick="regresar_inicio()"><a>Inicio</a></button>
+              <button class="botonhead" onclick="acerca_de()"><a>Acerca de</a></button>
               <div class="botonSwitch">
     
                 <input type="checkbox" id="SwitchIP">
@@ -75,6 +75,18 @@
     </footer>
 
 </body>
+
+<script>
+  function regresar_inicio() {
+      const url = "../index.html";
+      location.href = url;
+  }
+
+  function acerca_de() {
+      const url = "https://github.com/FranciscoMelen10/Anime-News-RF";
+      location.href = url;
+  }
+</script>
 
 <script src="https://kit.fontawesome.com/e84f521c03.js" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
