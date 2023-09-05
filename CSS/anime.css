@@ -65,7 +65,7 @@ header nav {
 .barra a {
   margin: 0 30px;
   bottom: 50px;
-  color: #000000;
+  color: #ffffff;
 }
 
 
@@ -201,7 +201,7 @@ body.dark a{
 }
 
 .img__info__anime {
-    width: 300px;
+    width: 100%;
     border-radius: 30px;
 }
 .info__anime {
@@ -215,11 +215,11 @@ body.dark a{
 .contenedor__info__anime {
   display: flex;
   align-items: center;
-  background-color: #222;
+
   color: #fff;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+
+
 }
 
 .info_principal {
@@ -498,41 +498,51 @@ swiper-slide img {
     }
   }
 
-@media screen and (max-width: 880px) {
+  @media screen and (max-width: 880px) {
 
     .img__info__anime {
-        width: 100%;
+      max-width: 200px;
+      border-radius: 5px;
+      margin-left: 75px;
+      margin-bottom: 20px;
     }
+  
+      swiper-slide {
+          width: 90%;
+      }
+  
+      .section__personajes img {
+        margin-left: 20px;
+          padding: 20px;
+      }
+  
+      .contenedor__info__anime {
+          display: block;
+          margin-top: 20px;
+      }
+  
+      .sypnosis {
+        margin-top: 10px;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+  
+      .div__info__anime {
+          display: flex;
+          flex-direction: column;
+          align-items: self-start;
+      }
+      
+      button{
 
-    swiper-slide {
-        width: 90%;
-    }
+        display: inline-block; 
+        
+        
+      
+      }
 
-    .section__personajes img {
-        padding: 20px;
-    }
-
-    .contenedor__info__anime {
-        display: block;
-        margin-top: 20px;
-    }
-
-    .sypnosis {
-        font-size: 20px;
-    }
-
-    .div__info__anime {
-        display: flex;
-        flex-direction: column;
-        align-items: self-start;
-    }
-
-    .icons {
-        height: 30px;
-        width: 30px;
-    }
-
-}
+  
+  }
 
 
 .info_source,
@@ -546,7 +556,7 @@ swiper-slide img {
 .span_anime {
   margin-left: 10px;
   font-size: 24px;
-  white-space: nowrap;
+
 }
 
 .sypnosis {
@@ -565,6 +575,7 @@ swiper-slide img {
 
 
 button{
+  display: inline-block; 
   border-radius: 50px;
   margin-right: 25px;
   background:#1AAB8A;
@@ -573,11 +584,15 @@ button{
   position:relative;
   height:40px;
   font-size:16px;
-  padding:0 2em;
   cursor:pointer;
   transition:800ms ease all;
   outline:none;
 
+}
+
+a{
+  text-decoration: none;
+  color:#ffffff;
 }
 
 body.dark button{
@@ -593,6 +608,14 @@ button:hover{
 body.dark button:hover{
   background:rgb(48, 47, 47);
   color:#ffffff;
+}
+body.dark button:hover a{
+  color:#ffffff;
+}
+
+button:hover a{
+
+  color:#000000;
 }
 button:before,button:after{
   content:'';
