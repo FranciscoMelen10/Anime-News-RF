@@ -201,8 +201,8 @@ body.dark a{
 }
 
 .img__info__anime {
-    width: 100%;
-    border-radius: 30px;
+  max-width: 100%;
+  height: auto;
 }
 .info__anime {
 
@@ -215,7 +215,7 @@ body.dark a{
 .contenedor__info__anime {
   display: flex;
   align-items: center;
-
+  text-align: center;
   color: #fff;
   padding: 20px;
 
@@ -501,48 +501,97 @@ swiper-slide img {
   @media screen and (max-width: 880px) {
 
     .img__info__anime {
-      max-width: 200px;
-      border-radius: 5px;
-      margin-left: 75px;
+      max-width: 100%;
       margin-bottom: 20px;
     }
-  
-      swiper-slide {
+
+    .info__anime{
+      margin: 0 0 0 0;
+    }
+
+    swiper-slide {
           width: 90%;
       }
   
-      .section__personajes img {
+    .section__personajes img {
         margin-left: 20px;
           padding: 20px;
       }
-  
-      .contenedor__info__anime {
+
+    .contenedor__info__anime {
           display: block;
           margin-top: 20px;
+          text-align: center; 
+          margin: 10px auto; 
+          max-width: 100%; 
+          padding: 0px;
+         
+      } 
+
+    .botonhead::before {
+        font-family: "Font Awesome 5 Free"; /* Especifica la fuente de FontAwesome */
+        font: var(--fa-font-solid);
+        content: "\f007";
+        font-size: 16px;
+        margin-top: 10px;
+        white-space: nowrap;
+        margin-right: 32px; /* Espacio entre el icono y el texto del botón */
+        
       }
-  
-      .sypnosis {
+
+    .botonhead{
+        font-size: 0px;
+      }
+
+    header nav{
+        right: 0px;
+      }
+
+    .home::before{
+        font-family: "Font Awesome 5 Free"; /* Especifica la fuente de FontAwesome */
+        font: var(--fa-regular --fa-sun);
+        content: "\f185";
+        font-size: 16px;
+        margin-top: 10px;
+        margin-right: 33px;
+
+        
+        
+      }
+
+    .home{
+        font-size: 0px;
+      }
+
+    .sypnosis {
+      margin-right: 10px;
         margin-top: 10px;
         font-size: 14px;
         line-height: 1.5;
       }
   
-      .div__info__anime {
+    .div__info__anime {
+
           display: flex;
           flex-direction: column;
           align-items: self-start;
       }
       
-      button{
-
-        display: inline-block; 
+    button{
+        width: 50px;
+        font-size: 0px;
+        text-align: center;
         
-        
-      
       }
 
-  
+
+
+
+      .info_principal{
+        margin-right: 10px;
+      }
   }
+
 
 
 .info_source,
@@ -617,6 +666,7 @@ button:hover a{
 
   color:#000000;
 }
+
 button:before,button:after{
   content:'';
   position:absolute;
@@ -625,7 +675,7 @@ button:before,button:after{
   height:2px;
   width:0;
   background: #1AAB8A;
-  transition:400ms ease all;
+  transition:none;
 
 }
 body.dark button:before,button:after{
@@ -638,8 +688,9 @@ button:after{
   left:0;
   bottom:0;
 }
+
 button:hover:before,button:hover:after{
-  width:100%;
+  width:0%;
   transition:800ms ease all;
 }
 
