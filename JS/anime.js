@@ -1,5 +1,5 @@
 window.onload = function(){
-    $("#onload").fadeOut();
+    setTimeout($("#onload").fadeOut(),2000)
     $('section').removeClass("hidden")
     $('div').removeClass("hidden")
     $('swiper-container').removeClass("hidden")
@@ -37,7 +37,7 @@ let pictures = ""
 
 //Controlador de personajes
 var controlador = 0 // Indice de control para imprimir a los personajes en pantalla
-let limite = 20 // Limite de fotos para mostrar en pantalla 
+let limite = 40 // Limite de fotos para mostrar en pantalla 
 let personajes_faltantes = 0 // Se realizara una operación aritmetica para identificar exactamente la cantidad de personajes que faltan de la api 
 
 // Varible para identificar el personaje nulo de la api
@@ -50,47 +50,42 @@ try {
         .then(info => {
             let fecha_creacion = `${info.data.aired.prop.from.day}/${info.data.aired.prop.from.month}/${info.data.aired.prop.from.year}`
             info_anime = ` 
-                <div class="contenedor__info__anime ">
                 <img class="img__info__anime" loading="lazy" src="${info.data.images.jpg.large_image_url}" />
-                    <div class="info__anime">
+                <div class="contenedor__info__anime ">
                     <span class="span_anime info_principal">${info.data.title}</span>
                         <div class="div__info__anime">
 
                             <div class="icons_info">
                                 <p class="info_source" loading="lazy">Source: 
                                     <span class="span_source">${info.data.source}</span>
-                                    <box-icon type='solid' class="icons" color="white" name='book'></box-icon>
-
                                 </p>
+                                <box-icon type='solid' class="icons" color="white" name='book'></box-icon>
                             </div>
 
                             <div class="icons_info">
                                 <p class="info_episodes " loading="lazy">Total Episodes: 
                                     <span class="span_episodes">${info.data.episodes}</span>
-                                    <box-icon type='solid' class="icons" color="white" name='videos'></box-icon>
-
                                 </p>
+                                <box-icon type='solid' class="icons" color="white" name='videos'></box-icon>
                             </div>
 
                             <div class="icons_info">
                                 <p class="info_from " loading="lazy">From: 
                                     <span class="span_info">${fecha_creacion}</span>
-                                    <box-icon name='calendar' class="icons" color="white" type='solid'></box-icon>
-
                                 </p>
+                                <box-icon name='calendar' class="icons" color="white" type='solid'></box-icon>
                             </div>
 
                             <div class="icons_info">
                                 <p class="info_rank " loading="lazy">Rank: 
                                     <span class="span_rank">${info.data.rank}</span>
-                                    <box-icon name='heart' class="icons" type='solid' color="red" ></box-icon>
-
                                 </p>
+                                <box-icon name='heart' class="icons" type='solid' color="red" ></box-icon>
                             </div>
-                    </div>
+
                         </div>
 
-                    <articule class="sino">
+                    <articule>
                         <p class="info_principal">Sypnosis:</p>
                         <p class="sypnosis">${info.data.synopsis}</p>
                     </articule>
@@ -124,7 +119,15 @@ try {
     console.error(error);
 }
 
-
+try {
+    fetch(query_personajes)
+        .then(resp => resp.json())
+        .then(info => {
+            cargar_personajes(info)
+        });
+} catch (error) {
+    console.error(error);
+}
 
 /* 
     Para no cargar todas las imagenes de golpe y no tumbar la pagina (Me paso con one piece)

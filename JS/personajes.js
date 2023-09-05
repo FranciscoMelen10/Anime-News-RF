@@ -1,5 +1,5 @@
 window.onload = function(){
-    $("#onload").fadeOut();
+    setTimeout($("#onload").fadeOut(),2000)
     $('section').removeClass("hidden")
     $('div').removeClass("hidden")
     $('swiper-container').removeClass("hidden")
